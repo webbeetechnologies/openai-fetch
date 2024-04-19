@@ -1,6 +1,6 @@
 {
   "name": "@webbeetechnologies/openai-fetch",
-  "version": "2.0.8",
+  "version": "2.0.7",
   "description": "OpenAI client powered by fetch",
   "repository": "dexaai/openai-fetch",
   "license": "MIT",
@@ -19,8 +19,14 @@
     "dist",
     "openai-types"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "build": "npx esbuild src/index.ts --format=cjs --bundle --outfile=dist/index.js && tsc --project tsconfig.dist.json",
+    "build": "npx esbuild src/index.ts --format=cjs --bundle --outfile=dist/index.js",
     "clean": "rimraf dist openai-types node_modules",
     "clean:build": "rimraf dist openai-types",
     "dev": "tsc --watch",
